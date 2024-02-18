@@ -28,6 +28,12 @@ listContainer.addEventListener('click', function(e){
     }
 });
 
+function updateHeader() {
+    let headerText = document.getElementById("todoBox").getElementsByTagName("h2")[0].innerText;
+    document.getElementById("todoBox").getElementsByTagName("h2")[0].innerText = headerText.trim();
+}
+
+
 function saveData() {
     localStorage.setItem("data" , listContainer.innerHTML);
 }

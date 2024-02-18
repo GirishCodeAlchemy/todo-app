@@ -9,12 +9,12 @@
 </head>
 <body>
     <div class="container">
-        <div class="todo-box">
-            <h2>ToDo-App</h2>
+        <div class="todo-box" id="todoBox">
+            <h2 contenteditable="true" onblur="updateHeader()">ToDo-App</h2>
 
             <div class="row">
                 <input type="text" placeholder="Add your Task" id="input-box">
-                <button onclick="addTask()" >Add</button>
+                <button onclick="addTask()">Add</button>
             </div>
 
             <ul id="list-container"></ul>
