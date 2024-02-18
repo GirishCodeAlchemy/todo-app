@@ -1,5 +1,6 @@
 const inputBox = document.getElementById('input-box');
 const listContainer = document.getElementById('list-container');
+const header = document.getElementById('header');
 
 function addTask() {
     if(inputBox.value == ''){
@@ -29,10 +30,21 @@ listContainer.addEventListener('click', function(e){
 });
 
 function updateHeader() {
-    let headerText = document.getElementById("todoBox").getElementsByTagName("h2")[0].innerText;
-    document.getElementById("todoBox").getElementsByTagName("h2")[0].innerText = headerText.trim();
+    let headerText = header.innerText.trim();
+    header.innerText = headerText;
+    saveHeader();
 }
 
+function saveHeader() {
+    localStorage.setItem("headerText", header.innerText);
+}
+
+function showHeader() {
+    const storedHeader = localStorage.getItem("headerText");
+    if (storedHeader) {
+        header.innerText = storedHeader;
+    }
+}
 
 function saveData() {
     localStorage.setItem("data" , listContainer.innerHTML);
@@ -42,4 +54,5 @@ function showTask() {
     listContainer.innerHTML = localStorage.getItem("data");
 }
 
+showHeader();
 showTask();
